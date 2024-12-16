@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    </head>
+    <body>
+        <p>Узнаем точное время.....</p>
+        <ul id="timeList"></ul>
+        <script type="text/javascript">
+        $(function(){
+            function fetchTime() { // функция для получения времени с сервера
+                $.get('ajax.php', function(data) {
+                    $('#timeList').append('<li>' + data + '</li>'); // добавляем новое время в список
+                });
+            }
+            setInterval(fetchTime, 2000);
+        });
+        </script>
+    </body>
+</html>
